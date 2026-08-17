@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.senha{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.digito{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 50px;
+}
+
+.btnEnviar {
+    cursor: pointer;
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.btnEnviar:hover{
+    background-color: black;
+    color: white;
+}
+
+.certo{
+    background-color: green;
+}
+
+.erro{
+    background-color: red;
+}
