@@ -20,9 +20,32 @@ function adicionarTarefa() {
     let texto = inputText.value.trim();
     // serve para não enviar a lista vazia exemplo: vazio
     if(texto !== ""){
-        contadorId++
+        contadorId++;
         tarefas.push({id: contadorId, tarefa: texto, concluido: false});
         inputText.value = "";
-        console.log(tarefas);
+        renderizar();
  }
+}
+
+function renderizar(){
+    // innerHtml serve para o texto não ser escrito mais de 1 vez
+    lista.innerHTML = "";
+    // loop para fazer uma lista 
+    tarefas.forEach(function(item){
+        let li = document.createElement("li");
+        li.textContent = item.tarefa;
+        lista.appendChild(li);;
+                // btnExcluir serve para excluit a lista quando ela ja estiver cheia
+        let btnExcluir = document.createElement("button")
+        btnExcluir.innerHTML = "❌"
+        li.appendChild(btnExcluir)
+        btnExcluir.addEventListener("click", function(e){
+            // serve para não adicionar na lista
+            e.stopPropagation();
+            tarefas = tarefas.filter(function(t){
+                return t.id !== item.id
+    })
+    renderizar();
+   })
+ })
 }
