@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(./assets/background-victory.png);
+    margin: 150px;
+    width: 650px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    
+    
+    
+}
+
+
+h1 {
+    color: #00C0DD;
+   text-align: center;
+    padding: 0px 520px;
+   font-size:50px;
+   font-family: Arial;
+}
+
+.boneco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 620px;
+      
+    
+}
+
+.botao {
+    align-items: start;
+     position: absolute;
+    top: 20px;
+    left: 1350px;
+    transform: translateX(200%);
+    
+    
+
+
+}
+
+
