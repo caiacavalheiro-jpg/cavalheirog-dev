@@ -1,68 +1,430 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 
 body {
-    background-color: #0A1B2D;
+  min-height: 100vh;
+  background-color: #0a1b2d;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.clTabuleiro {
-    width: 400px;
-    margin: 0 auto;
-    display: flex;  
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+
+.jogo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-.centro {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.painelTopo {
+  width: 100%;
+  height: 100px;
+  padding: 0 570px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background-color: #07182a;
+  border: 2px solid black;
+  border-radius: 7px;
 }
 
-.clMae {
-    width: 380px;
-    height: 588px;
-    background-color: #081625;
-    border: 4px solid #000612;
-    border-radius: 20px;
-    padding: 5px;
+.retornar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #081728;
+  border: 1px solid #081728;
+  border-radius: 6px;
+  cursor: pointer;
+  background-image: url(./assets/return.png);
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.inputAlinhamento {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.retornar:hover {
+  background-image: url(./assets/return-hover.png);
+  background-color: #2B4056;
 }
 
-.casa {
-    width: 50px;
-    height: 50px;
-    background-color: #06111F;
-    border: 3px solid  #2B4056;
+
+.personagemTopo {
+  width: 70px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
 }
 
-.btnEnviar {
-    background-color: #2B4056;
-    color: #06111F;
-    width: 340px;
-    height: 37px;
-    border-radius: 10px;
-    border: 3px solid #06111F;
-    margin: 15px;
+
+.personagemTopo img {
+  width: 70px;
+  max-height: 90px;
+  position: absolute;
+  top: 14px;
 }
+
+
+.painelTentativas {
+  width: 90px;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #091c2f;
+  border: 1px solid #1b354b;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+.tituloTentativas {
+  color: #8297aa;
+  font-size: 8px;
+  font-weight: bold;
+}
+.contador {
+  color: #2b4056;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 20px;
+}
+.contadorCor {
+  color: #238e4b;
+}
+
+
+.subTitulo {
+  position: absolute;
+  top: 82px;
+  right: 520px;
+  font-size: 10px;
+}
+
+
+.painelJogo {
+  width: fit-content;
+  margin-top: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #07182a;
+  border: 2px solid #102b42;
+  border-radius: 7px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
 
 .inputSenha {
-    background-color: #06111F;
-    border: 3px solid #2B4056;
-    color: #2B4056;
-    height: 46px;
-    border-radius: 10px;
-    width: 340px;
-    text-align: center;
+  width: 180px;
+  height: 30px;
+  margin-bottom: 6px;
+  padding: 5px;
+  background-color: #061526;
+  border: 1px solid #29445d;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.inputSenha:focus {
+  outline: none;
+  border-color: #238e4b;
+}
+
+
+.btnEnviar {
+  width: 180px;
+  height: 29px;
+  margin-bottom: 10px;
+  background-color: #2b4056;
+  border: 3px solid #06111f;
+  border-radius: 10px;
+  color: #06111f;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+
+.btnEnviar:hover {
+  background-color: #06111f;
+  color: #2b4056;
+  border: 1px solid #2b4056;
+}
+
+
+.tabuleiro {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 3px;
+  background-color: #081625;
+  border-radius: 4px;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+
+.linha {
+  display: flex;
+  gap: 2px;
+}
+
+
+.digito {
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #091c2f;
+  border: 1px solid #294258;
+  border-radius: 2px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+.certo {
+  background-color: #179447;
+  border-color: #32c864;
+}
+.quase {
+  background-color: #dc8a18;
+  border-color: #ffad35;
+}
+.erro {
+  background-color: #c72f37;
+  border-color: #ed5159;
+}
+
+
+.telaFinal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.telaFinal.ativa {
+  display: flex;
+}
+.telaVitoria {
+  background-image: url("./assets/background-victory.png");
+}
+.telaDerrota {
+  background-image: url("./assets/background-defeat.png");
+}
+
+
+.fecharFinal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+
+.fecharFinal img {
+  width: 45px;
+  height: 45px;
+}
+.fecharFinal:hover img {
+  content: url("./assets/close-hover.png");
+}
+
+
+.conteudoFinal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+
+.personagemFinal {
+  width: 150px;
+  height: 190px;
+  margin: 10px 0;
+  background-image: url("./assets/among-32.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.vitoriaJogo {
+  color: #00c0dd;
+  font-size: 36px;
+}
+.derrotaJogo {
+  color: red;
+  font-size: 36px;
+}
+
+
+@media (max-width: 380px) {
+
+  .painelTopo {
+    width: 100%;
+    max-width: 380px;
+    height: 70px;
+    padding: 6px 8px;
+    border-radius: 5px;
+  }
+
+  .retornar {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    background-size: 22px 22px;
+  }
+
+  .personagemTopo {
+    width: 50px;
+    height: 45px;
+  }
+
+  .personagemTopo img {
+    width: 36px;
+    max-height: 40px;
+    top: 10px;
+    right: 190px;
+  }
+
+  .painelTentativas {
+    width: 65px;
+    height: 42px;
+    position: absolute;
+    right: 120px;
+    top: 7px;
+  }
+
+  .tituloTentativas {
+    font-size: 6px;
+  }
+
+  .contador {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .subTitulo {
+    top: 56px;
+    right: auto;
+
+    font-size: 9px;
+    white-space: nowrap;
+  }
+
+  .painelJogo {
+    width: 94%;
+    max-width: 340px;
+    margin-top: 24px;
+    padding: 10px;
+  }
+
+  .inputSenha {
+    width: 100%;
+    height: 27px;
+    margin-bottom: 5px;
+    font-size: 10px;
+  }
+
+  .btnEnviar {
+    width: 100%;
+    height: 26px;
+    font-size: 9px;
+  }
+
+  .tabuleiro {
+    gap: 6px;
+    padding: 2px;
+  }
+
+  .linha {
+    gap: 2px;
+  }
+
+  .digito {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .telaFinal {
+    padding: 10px;
+  }
+
+  .conteudoFinal {
+    width: 100%;
+    max-width: 340px;
+    gap: 8px;
+  }
+
+  .vitoriaJogo,
+  .derrotaJogo {
+    font-size: 26px;
+  }
+
+  .personagemFinal {
+    width: 110px;
+    height: 140px;
+    margin: 6px 0;
+  }
+
+  .palavraVitoria,
+  .palavraDerrota {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+
+  .fecharFinal {
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .fecharFinal img {
+    width: 34px;
+    height: 34px;
+  }
+
 }

@@ -1,24 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="centro">
-    <div class="clMae">
-        <div class="inputAlinhamento">
-            <input class="inputSenha" type="text" placeholder="Acerte a senha..." maxlength="5" >
-        </div>
-        <button class="btnEnviar">ENVIAR</button>
-        <div class="clAlinhamento">
-            <div class="clTabuleiro"></div>
-        </div>
-    </div>
-    </div>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Among Us - Acerte a Senha</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<script src="script.js"></script>
-</body>
+
+  <body>
+    <main class="jogo">
+      <div class="painelTopo">
+        <button class="retornar"></button>
+        <buttom class="retornarHover"></buttom>
+
+
+        <div class="personagemTopo">
+          <img src="./assets/among-32.png" alt="Among Us" />
+        </div>
+
+
+        <div class="painelTentativas">
+          <p class="tituloTentativas">TENTATIVAS</p>
+          <p class="contador"><span class="contadorCor">0</span>/6</p>
+        </div>
+      </div>
+
+
+      <p class="subTitulo">Adivinhe a palavra secreta de 5 letras.</p>
+
+
+      <div class="painelJogo">
+        <input
+          class="inputSenha"
+          type="text"
+          maxlength="5"
+          placeholder="Acerte a senha..."
+          autocomplete="off"
+        />
+
+
+        <button class="btnEnviar">ENVIAR</button>
+
+
+        <div class="tabuleiro"></div>
+      </div>
+    </main>
+
+
+
+<div class="telaFinal telaVitoria">
+  <button class="fecharFinal">
+    <img src="./assets/close.png" alt="Fechar">
+  </button>
+  <div class="conteudoFinal">
+    <h1 class="vitoriaJogo">Você Venceu!</h1>
+    <div class="personagemFinal"></div>
+    <p class="palavraVitoria"></p>
+  </div>
+</div>
+
+<div class="telaFinal telaDerrota">
+  <button class="fecharFinal">
+    <img src="./assets/close.png" alt="Fechar">
+  </button>
+  <div class="conteudoFinal">
+    <h1 class="derrotaJogo">Você Perdeu!</h1>
+    <div class="personagemFinal"></div>
+    <p class="palavraDerrota"></p>
+  </div>
+</div>
+
+
+    <script src="script.js"></script>
+  </body>
 </html>
