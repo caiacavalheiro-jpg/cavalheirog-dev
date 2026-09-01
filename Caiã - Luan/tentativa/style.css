@@ -298,19 +298,18 @@ body {
 }
 
 
-@media (max-width: 380px) {
+@media (max-width: 540px) {
 
   .painelTopo {
     width: 100%;
     max-width: 380px;
     height: 70px;
     padding: 6px 8px;
-    border-radius: 5px;
   }
 
   .retornar {
-    top: 8px;
-    right: 8px;
+    top: 2px;
+    right: 2px;
     width: 32px;
     height: 32px;
     background-size: 22px 22px;
@@ -323,8 +322,8 @@ body {
 
   .personagemTopo img {
     width: 36px;
-    max-height: 40px;
-    top: 10px;
+    max-height: 50px;
+    top: 3px;
     right: 190px;
   }
 
@@ -354,7 +353,7 @@ body {
   }
 
   .painelJogo {
-    width: 94%;
+    width: 150px;
     max-width: 340px;
     margin-top: 24px;
     padding: 10px;
@@ -389,6 +388,8 @@ body {
   }
 
   .telaFinal {
+    position: fixed;
+    display: none;
     padding: 10px;
   }
 
