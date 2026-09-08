@@ -3,11 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cavalheiro</title>
 </head>
 <body>
-    <h1>Caiã Goulart Cavalheiro</h1>
-    <p>Projeto 01: tabuleiro</p>
-    <p>acesse: <a href="./projetos/projeto_01/index.html">Link</a></p>
+    <title>Cavalheiro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;700;900&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #05060a;
+    --blue-mid: #2c5f8a;
+    --blue-bright: #6ba3d6;
+    --white: #f2f4f8;
+    --dim: #5a6478;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    min-height:100vh;
+    background:var(--bg);
+    color:var(--white);
+    font-family:Arial, sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    text-align:center;
+    padding:2rem;
+    position:relative;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+
+  .glow{
+    position:absolute;
+    top:50%; left:50%;
+    width:70vw; height:70vw;
+    background:radial-gradient(circle, rgba(44,95,138,0.25), transparent 65%);
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+  }
+
+  .center{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    /* DEIXA O CAVALHEIRO MAIS PARA BAIXO */
+    margin-top:5rem;
+  }
+
+  .behind{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    z-index:0;
+    text-transform:uppercase;
+    font-weight:900;
+    font-size:clamp(2.4rem, 13vw, 8.5rem);
+    line-height:0.9;
+    letter-spacing:-0.02em;
+    color:rgba(107,163,214,0.14);
+    white-space:nowrap;
+    user-select:none;
+  }
+
+  .name{
+    position:relative;
+    z-index:1;
+    font-family:Arial, sans-serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(3.2rem, 11vw, 7.5rem);
+    letter-spacing:0.01em;
+  }
+
+  .rule{
+    position:relative;
+    z-index:1;
+    width:48px;
+    height:1px;
+    background:var(--blue-bright);
+    margin:1.6rem auto 1.6rem;
+  }
+
+  .intro{
+    position:relative;
+    z-index:1;
+    max-width:34ch;
+    font-size:1.02rem;
+    color:#c7cedb;
+    line-height:1.7;
+    font-weight:300;
+  }
+
+  .intro strong{
+    color:var(--white);
+    font-weight:500;
+  }
+
+  .tags{
+    position:relative;
+    z-index:1;
+    margin-top:1.8rem;
+    display:flex;
+    gap:0.6rem;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .tags span{
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--dim);
+    border:1px solid rgba(107,163,214,0.25);
+    padding:0.4rem 0.85rem;
+  }
+
+  .cta{
+    position:relative;
+    z-index:1;
+    margin-top:2.4rem;
+    display:inline-flex;
+    align-items:center;
+    gap:0.6rem;
+    font-family:Arial, sans-serif;
+    font-size:0.85rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--bg);
+    background:var(--blue-bright);
+    padding:0.85rem 1.8rem;
+    border:1px solid var(--blue-bright);
+    transition:background 0.25s ease, color 0.25s ease;
+    text-decoration:none;
+  }
+
+  .cta:hover{
+    background:transparent;
+    color:var(--blue-bright);
+  }
+
+  .projeto01 {
+    color:var(--blue-bright);
+    text-decoration:none;
+  }
+
+  .projeto01:hover {
+    color:#2c5f8a;
+  }
+
+  @media (max-width:640px){
+    .behind{
+      font-size:clamp(2rem, 20vw, 4rem);
+      white-space:normal;
+      line-height:1.05;
+    }
+  }
+
+  .projetos {
+    position:relative;
+    z-index:1;
+
+    width:min(100%, 1000px);
+
+    margin-top:2rem;
+
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+
+    padding-bottom:3rem;
+  }
+
+  .card {
+    min-height:220px;
+
+    background:rgba(15, 15, 24, 0.95);
+
+    border:2px solid #2c5f8a;
+    border-radius:12px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+    color:var(--white);
+
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+
+    position:relative;
+    overflow:hidden;
+  }
+
+  .card::before {
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:10%;
+    width:80%;
+    height:2px;
+
+    background:#6ba3d6;
+
+    opacity:0.8;
+
+    transition:width 0.25s ease;
+  }
+
+  .icone {
+    font-size:2.5rem;
+    margin-bottom:1rem;
+
+    transition:
+      transform 0.25s ease,
+      filter 0.25s ease;
+  }
+
+  .card h2 {
+    font-family:Arial, sans-serif;
+
+    font-size:1.1rem;
+    font-weight:700;
+
+    color:var(--white);
+
+    margin:0;
+  }
+
+  .card:hover {
+    transform:translateY(-6px);
+
+    border-color:#6ba3d6;
+
+    background:rgba(20, 25, 38, 0.98);
+
+    box-shadow:
+      0 0 20px rgba(107, 163, 214, 0.18),
+      0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .card:hover::before {
+    width:100%;
+  }
+
+  .card:hover .icone {
+    transform:scale(1.15);
+
+    filter:drop-shadow(0 0 8px rgba(107, 163, 214, 0.5));
+  }
+
+  @media (max-width:800px) {
+
+    .projetos {
+      grid-template-columns:repeat(2, 1fr);
+    }
+
+    .card {
+      min-height:190px;
+    }
+
+  }
+
+  @media (max-width:500px) {
+
+    .projetos {
+      grid-template-columns:1fr;
+    }
+
+    .card {
+      min-height:180px;
+    }
+
+  }
+
+  /* NEVE */
+.snowflake {
+  position: fixed;
+  top: -20px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 10px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 9999;
+  animation-name: snowfall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-20px) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(110vh) translateX(40px);
+    opacity: 0;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<div class="center">
+  <div class="behind">nunca foi sorte<br>sempre foi Deus</div>
+  <h1 class="name">Cavalheiro</h1>
+</div>
+
+<div class="rule"></div>
+
+<p class="intro">
+  Desenvolvedor que transforma ideias em código —
+  <strong>HTML, CSS e JavaScript</strong>
+  no dia a dia, sempre buscando aprender mais e construir com propósito.
+</p>
+
+<div class="tags">
+  <span>HTML</span>
+  <span>CSS</span>
+  <span>JavaScript</span>
+</div>
+
+<a class="cta" href="">Projetos:</a>
+
+<div class="projetos">
+
+  <a href="./projetos/projeto_01/index.html" class="card">
+    <span class="icone">🎲</span>
+    <h2>Tabuleiro</h2>
+  </a>
+
+  <a href="./projetos/projeto_02/" class="card">
+    <span class="icone">🎮</span>
+    <h2>Modal</h2>
+  </a>
+
+  <a href="./projetos/projeto_03/" class="card">
+    <span class="icone">💻</span>
+    <h2>Frase do dia</h2>
+  </a>
+
+  <a href="./projetos/projeto_04/" class="card">
+    <span class="icone">🌐</span>
+    <h2>Verificar senha</h2>
+  </a>
+
+  <a href="./projetos/projeto_05/" class="card">
+    <span class="icone">⚡</span>
+    <h2>Link</h2>
+  </a>
+
+  <a href="./projetos/projeto_06/" class="card">
+    <span class="icone">🚀</span>
+    <h2>To do list</h2>
+  </a>
+
+  <a href="./projetoAlbum/index.html" class="card">
+    <span class="icone">📷</span>
+    <h2>Album</h2>
+  </a>
+
+  <a href="./projetoHC/projeto_Coca/index.html" class="card">
+    <span class="icone">🥤</span>
+    <h2>Coca</h2>
+  </a>
+
+  <a href="./projetoHC/projetoAlbum/album.html" class="card">
+    <span class="icone">🖼️</span>
+    <h2>Projeto Album</h2>
+  </a>
+
+  <a href="./projetoHC/projetoAURA/aura.html" class="card">
+    <span class="icone">✨</span>
+    <h2>AURA</h2>
+  </a>
+
+  <a href="./projetoHC/projetoBotao/botao.html" class="card">
+    <span class="icone">🔘</span>
+    <h2>Botão</h2>
+  </a>
+
+  <a href="./projetoHC/projetoCartao/cartao.html" class="card">
+    <span class="icone">💳</span>
+    <h2>Cartão</h2>
+  </a>
+
+  <a href="./projetoHC/projetoCurriculo/Curriculo.html" class="card">
+    <span class="icone">📄</span>
+    <h2>Currículo</h2>
+  </a>
+
+  <a href="./projetoHC/projetoDiario/Diario.html" class="card">
+    <span class="icone">📔</span>
+    <h2>Diário</h2>
+  </a>
+
+  <a href="./projetoHC/projetoErros/erros.html" class="card">
+    <span class="icone">⚠️</span>
+    <h2>Erros</h2>
+  </a>
+
+  <a href="./projetoHC/projetoEvento/Evento.html" class="card">
+    <span class="icone">🎉</span>
+    <h2>Evento</h2>
+  </a>
+
+  <a href="./projetoHC/projetoLading/lading.html" class="card">
+    <span class="icone">📱</span>
+    <h2>Landing Page</h2>
+  </a>
+
+  <a href="./projetoHC/projetomargin/" class="card">
+    <span class="icone">📐</span>
+    <h2>Margin</h2>
+  </a>
+
+  <a href="./projetoHC/projetoPerfil/perfil.html" class="card">
+    <span class="icone">👤</span>
+    <h2>Perfil</h2>
+  </a>
+
+  <a href="./projetoHC/projetoPlanejamento/" class="card">
+    <span class="icone">📋</span>
+    <h2>Planejamento</h2>
+  </a>
+
+  <a href="./projetoHC/projetoPokemon/pokemon.html" class="card">
+    <span class="icone">⚡</span>
+    <h2>Pokémon</h2>
+  </a>
+
+  <a href="./projetoHC/projetoReceita/Receita.html" class="card">
+    <span class="icone">🍳</span>
+    <h2>Receita</h2>
+  </a>
+
+  <a href="./projetoHC/ProjetoRecuperacao/Rec.html" class="card">
+    <span class="icone">☢️</span>
+    <h2>Recuperação SA</h2>
+  </a>
+
+  <a href="./projetoHC/projetoSemafaro/semafaro.html" class="card">
+    <span class="icone">🚦</span>
+    <h2>Semáforo</h2>
+  </a>
+
+  <a href="./projetoHC/projetoSite/Site.html" class="card">
+    <span class="icone">🌎</span>
+    <h2>Site</h2>
+  </a>
+
+</div>
+
+<script>
+  const quantidadeNeve = 45;
+
+  for (let i = 0; i < quantidadeNeve; i++) {
+    const neve = document.createElement("div");
+
+    neve.classList.add("snowflake");
+    neve.innerHTML = "❄";
+
+    neve.style.left = Math.random() * 100 + "vw";
+    neve.style.fontSize = (Math.random() * 8 + 5) + "px";
+    neve.style.animationDuration = (Math.random() * 6 + 5) + "s";
+    neve.style.animationDelay = (Math.random() * 8) + "s";
+    neve.style.opacity = Math.random() * 0.5 + 0.3;
+
+    document.body.appendChild(neve);
+  }
+</script>
+
 </body>
 </html>

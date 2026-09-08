@@ -1,0 +1,31 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+header {
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 80px;
+}
+.links a {
+    color: black;
+    text-decoration: none;
+}
+.hero {
+    background-color: #767676;
+    height: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer {
+    background-color: #D9D9D9;
+    text-align: center;
+    padding: 20px 0;
+}
+.cards {
+    
+}

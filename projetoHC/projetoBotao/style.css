@@ -1,0 +1,93 @@
+.first {
+    background-color: whitesmoke;
+    width: 300px;
+    height: 100px;
+    border: 2px solid rgb(0, 0, 0);
+    text-align: center;
+    line-height: 100px; 
+}
+.first:hover {
+    background-color: black;
+    color: white;
+}
+.second {
+    background-color: #80E8FF;
+    border-radius: 50px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+.second:hover {
+    background-color: #9EEDFF;
+    color: black;
+}
+.third {
+    background-color: #41FF6A;
+    border-radius: 30px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+.third:hover {
+    background-color: #8BFFA4;
+    color: black;
+}
+.fourth {
+    background-color: #FF00C8;
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    border: 2px solid #FF00C8;
+}
+.fourth:hover {
+    background-color: white;
+    color: #FF00C8;
+}
+.fifth {
+    background-color:white;
+    color: red;
+    border: 2px solid red;
+    border-radius: 50px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+.fifth:hover {
+    background-color: red;
+    color: white;
+}
+.sixth {
+    background-color:white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 2px 5px 2px black;
+}
+.sixth:hover {
+    background-color: #525252;
+    color: white;
+}
+.seventh {
+    background-color:white;
+    color: black;
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 1px 2px black;
+}
+.seventh:hover {
+    color: #626262;
+    box-shadow: 1px 2px #626262;
+}
+

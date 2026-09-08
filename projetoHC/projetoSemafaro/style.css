@@ -1,0 +1,48 @@
+.quadro {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin: auto;
+}
+
+h4 {
+    text-align: center;
+    line-height: 100px;
+}
+.quadra {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    margin: auto;
+}
+
+h4 {
+    text-align: center;
+    line-height: 100px;
+}
+.quadru {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    margin: auto;
+}
+h4 {
+    text-align: center;
+    line-height: 100px;
+}
+
+.first {
+    color: white;
+    font-size: 43;
+    font-weight: 18;
+}
+.second {
+    color: white;
+    font-size: 79;
+    font-weight: 18;
+}
+.third {
+    color: white;
+    font-size: 40;
+    font-weight: 18;
+}

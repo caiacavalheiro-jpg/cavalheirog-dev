@@ -8,12 +8,17 @@ body{
     width: 100vw;
     height: 100vh;
     background-color: lightgray;
+    background-image: url(./assets/images.jpg);
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-image: url(./assets/ab.jpg);
+    align-items: center;
+
 }
 
 .lista{
+    color: white;
+}
+
+.title {
     color: blue;
 }

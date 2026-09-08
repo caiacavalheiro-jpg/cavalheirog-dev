@@ -1,0 +1,222 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.linha {
+    background-color:  #163F92;
+    padding: 20px 120px;
+    height: 61px;
+}
+.link {
+    display: flex;
+    gap: 20px;
+}
+.link :hover {
+    background-color: #163F92;
+    border-radius: 2px;
+    color: #000000;
+}
+.link a {
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+}
+.header {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 120px;
+    align-items: center;
+}
+.link-2 {
+    display: flex;
+    gap: 60px;
+}
+.link-2 :hover {
+    background-color: white;
+    color: #163F92;
+}
+.link-2 a {
+    font-weight: 700;
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+}
+.hero {
+    background-image: url(./assets/background-hero.png);
+    height: 30vw;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+p { 
+    margin: 0 auto; 
+    font-size: 16px;
+}
+.p3 {
+    color: #163F92;
+}
+.p4 {
+    text-align: center;
+}
+.first {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.second {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.cards {
+    max-width: 720px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+body {
+    background-color: #EAEAEA;
+}
+.card {
+    width: 217px;
+    height: 160px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.397);
+    text-align: center;
+    padding: 20px;
+}
+.third {
+    background-color: whitesmoke;
+    height: 550px;
+    width: 467px;
+    padding: 40px 20px;
+    box-shadow:  5px 5px 10px #000000 (0, 0, 0, 0.397);
+    border-radius: 20px;
+}
+.fourth {
+    color: #163F92;
+}
+.fifth {
+    color: #163F92;
+    padding: 20px 0px;
+}
+.sixth {
+    background-color: #EEF6FF;
+    height: 130px;
+    width: 407px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.seventh {
+    background-color: #EEF6FF;
+    height: 130px;
+    width: 407px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.eigth {
+    background-color: whitesmoke;
+    height: 550px;
+    width: 467px;
+    padding: 40px 20px;
+    box-shadow:  5px 5px 10px #000000 (0, 0, 0, 0.397);
+    border-radius: 20px;
+}
+.nineth {
+    color: #163F92;
+}
+.tenth {
+    background-color: #EEF6FF;
+    height: 130px;
+    width: 407px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.eleventh {
+    background-color: #EEF6FF;
+    border-radius: 20px;
+    height: 130px;
+    width: 407px;
+    padding: 20px;
+}
+.number {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
+.banner {
+    width: 980px;
+    height: 400px;
+    background-image: url(./assets/background-container.png);
+    background-size: cover;
+    margin: 60px auto;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+} 
+.banner h2 {
+    color:  #163F92;
+    font-size: 34px;
+    width: 354px;
+}
+.banner p {
+    color: #000000;
+    font-size: 16px;
+    width: 304px;
+    text-align: left;
+    margin: initial;
+}
+.banner a {
+    background-color: #163F92;
+    width: 260px;
+    text-align: center;
+    padding: 10px 60px;
+    color: white;
+    font-weight: 700;
+    border-radius: 30px;
+    text-decoration: none;
+}
+.footer {
+    padding: 40px 120px;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-between;
+}
+.socials a {
+    width: 32px;
+    height: 32px;
+}
+.socials {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.insta {
+    background-image: url(./assets/ico-instagram.png);
+    background-size: contain;
+    background-position: center;
+}
+.linke {
+    background-image: url(./assets/ico-linkedin.png);
+    background-size: contain;
+    background-position: center;
+}
+.face {
+    background-image: url(./assets/ico-facebook.png);
+    background-size: contain;
+    background-position: center;
+}
+.youtu {
+    background-image: url(./assets/ico-youtube.png);
+    background-size: contain;
+    background-position: center;
+}

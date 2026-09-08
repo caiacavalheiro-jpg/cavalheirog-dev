@@ -1,0 +1,23 @@
+.first {
+    color: #00D4FF;
+}
+body {
+    background-color: #1A1A2E;
+}
+.second {
+    background-color: #1565C0;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+}
+.third {
+    background-color: #2E7D32;
+    color: white;
+    margin: 45px;
+}
+.fourth {
+    background-color: #E65100;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+}

@@ -1,0 +1,18 @@
+*{
+    background-color: #5937D7;
+}
+h1 {
+    text-align: center;
+    color: white;
+}
+.first {
+    border: 1px solid white;
+    width: 550px;
+    margin: 0 auto;
+    background-image: url(./assets/IMG1.png);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 30px 0;
+}
