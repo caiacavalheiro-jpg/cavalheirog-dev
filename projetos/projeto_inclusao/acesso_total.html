@@ -144,10 +144,32 @@
 
   /* Conteúdo principal */
   article.content h3{
-    font-size:1.3rem; margin-top:2rem;
+    font-size:1.3rem; margin-top:0;
   }
   article.content{
-    max-width:44rem;
+    max-width:none;
+  }
+
+  /* Blocos de tópico: texto à esquerda, imagem à direita */
+  .topic-row{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:2.5rem;
+    align-items:center;
+    margin-bottom:3rem;
+  }
+  .topic-row:last-child{ margin-bottom:0; }
+  .topic-row .topic-text{ max-width:38rem; }
+  .topic-row .topic-text p{ margin-bottom:0; }
+  .topic-row .topic-figure{ margin:0; }
+  .topic-row .topic-figure img{
+    width:100%;
+    border-radius:14px;
+    border:1px solid var(--line);
+  }
+  @media (max-width:56rem){
+    .topic-row{ grid-template-columns:1fr; }
+    .topic-row .topic-figure{ order:-1; }
   }
 
   /* Galeria */
@@ -431,14 +453,37 @@
         <h2 id="conteudo-titulo">Barreiras invisíveis no mundo digital</h2>
       </div>
       <article class="content">
-        <h3>O que é acessibilidade digital</h3>
-        <p>Na prática, acessibilidade digital significa que um formulário pode ser preenchido só com o teclado, que uma imagem tem uma descrição para quem usa leitor de tela, e que o texto tem contraste suficiente para ser lido sob qualquer luz. Nenhuma dessas exigências é complexa isoladamente — o problema é que raramente são pensadas desde o início do projeto.</p>
 
-        <h3>Tecnologias assistivas mais comuns</h3>
-        <p>Leitores de tela convertem o conteúdo da página em voz ou braile. Teclados alternativos e switches permitem navegar sem usar um mouse. Softwares de reconhecimento de fala substituem a digitação. Legendas e transcrições tornam o áudio acessível para pessoas surdas. Nenhuma dessas ferramentas funciona bem, porém, se o site por trás delas não foi construído de forma semântica e organizada.</p>
+        <div class="topic-row">
+          <div class="topic-text">
+            <h3>O que é acessibilidade digital</h3>
+            <p>Na prática, acessibilidade digital significa que um formulário pode ser preenchido só com o teclado, que uma imagem tem uma descrição para quem usa leitor de tela, e que o texto tem contraste suficiente para ser lido sob qualquer luz. Nenhuma dessas exigências é complexa isoladamente — o problema é que raramente são pensadas desde o início do projeto.</p>
+          </div>
+          <figure class="topic-figure">
+            <img src="./assets/ilustracao-o-que-e-acessibilidade.png" alt="Ilustração de um computador com texto alternativo em uma imagem e navegação por teclado em destaque">
+          </figure>
+        </div>
 
-        <h3>Erros comuns que excluem pessoas</h3>
-        <p>Botões sem texto identificável, vídeos sem legenda, cores como única forma de indicar um erro, menus que só funcionam com o mouse: são detalhes pequenos para quem não depende deles, e barreiras completas para quem depende. A boa notícia é que a maioria tem solução simples — muitas vezes, uma escolha de código diferente já resolve.</p>
+        <div class="topic-row">
+          <div class="topic-text">
+            <h3>Tecnologias assistivas mais comuns</h3>
+            <p>Leitores de tela convertem o conteúdo da página em voz ou braile. Teclados alternativos e switches permitem navegar sem usar um mouse. Softwares de reconhecimento de fala substituem a digitação. Legendas e transcrições tornam o áudio acessível para pessoas surdas. Nenhuma dessas ferramentas funciona bem, porém, se o site por trás delas não foi construído de forma semântica e organizada.</p>
+          </div>
+          <figure class="topic-figure">
+            <img src="./assets/ilustracao-tecnologias-assistivas.png" alt="Quatro ícones representando leitor de tela, teclado alternativo, reconhecimento de fala e legendas">
+          </figure>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-text">
+            <h3>Erros comuns que excluem pessoas</h3>
+            <p>Botões sem texto identificável, vídeos sem legenda, cores como única forma de indicar um erro, menus que só funcionam com o mouse: são detalhes pequenos para quem não depende deles, e barreiras completas para quem depende. A boa notícia é que a maioria tem solução simples — muitas vezes, uma escolha de código diferente já resolve.</p>
+          </div>
+          <figure class="topic-figure">
+            <img src="./assets/ilustracao-erros-comuns.png" alt="Quatro exemplos de erros comuns de acessibilidade: botão sem texto, vídeo sem legenda, cor como único indicador de erro e menu que só funciona com mouse">
+          </figure>
+        </div>
+
       </article>
     </div>
   </section>
