@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acesso Total — Tecnologia para todos</title>
+<meta name="description" content="Portal de conscientização sobre inclusão e acessibilidade digital, com artigos, galeria, vídeo e podcast produzidos com apoio de IA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F4EF;
+    --surface:#FFFFFF;
+    --ink:#1E1D1A;
+    --ink-soft:#55524A;
+    --line:#E1DDD1;
+    --accent:#2F6F63;
+    --accent-dark:#1F4A42;
+    --gold:#B4791F;
+    --focus:#1857C4;
+    --max:72rem;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    color:var(--ink);
+    line-height:1.15;
+    font-weight:600;
+    margin:0 0 0.6em;
+  }
+
+  p{ margin:0 0 1em; color:var(--ink-soft); max-width:38rem; }
+
+  a{ color:var(--accent-dark); }
+  a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible{
+    outline:3px solid var(--focus);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  img{ max-width:100%; display:block; }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 1.5rem;
+  }
+
+  /* Cabeçalho */
+  .site-header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(246,244,239,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:0.75rem 1.5rem;
+    padding-top:1rem; padding-bottom:1rem;
+  }
+  .brand{
+    display:flex; align-items:baseline; gap:0.6rem;
+    font-family:'Fraunces', serif; font-weight:700; font-size:1.3rem;
+    text-decoration:none; color:var(--ink);
+  }
+  .brand span{
+    font-family:'Inter', sans-serif; font-weight:500; font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .main-nav ul{
+    display:flex; flex-wrap:wrap; gap:1.6rem;
+    list-style:none; margin:0; padding:0;
+  }
+  .main-nav a{
+    text-decoration:none; color:var(--ink); font-weight:500; font-size:0.98rem;
+    padding:0.3rem 0.1rem; border-bottom:2px solid transparent;
+  }
+  .main-nav a:hover{ border-bottom-color:var(--accent); }
+
+  /* Hero / apresentação */
+  .hero{
+    padding:4.5rem 0 4rem;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.4vw, 3.4rem);
+    max-width:16ch;
+  }
+  .hero .lede{
+    font-size:1.15rem; max-width:36ch;
+  }
+  .hero-figure{
+    background:var(--accent-dark);
+    border-radius:18px;
+    aspect-ratio:4/3;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .hero-figure img{ width:100%; height:100%; object-fit:cover; }
+
+  .tag-row{
+    display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1.6rem;
+  }
+  .tag-row span{
+    border:1px solid var(--line);
+    background:var(--surface);
+    padding:0.35rem 0.85rem;
+    border-radius:100px;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+
+  /* Seções gerais */
+  section{ padding:4rem 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ max-width:42rem; margin-bottom:2.2rem; }
+  .section-head h2{ font-size:clamp(1.6rem,3vw,2.2rem); }
+
+  /* Apresentação */
+  .intro-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:2.5rem;
+  }
+  .intro-grid blockquote{
+    margin:0; padding-left:1.2rem; border-left:3px solid var(--accent);
+    font-family:'Fraunces', serif; font-size:1.3rem; font-style:italic;
+    color:var(--ink);
+  }
+
+  /* Conteúdo principal */
+  article.content h3{
+    font-size:1.3rem; margin-top:0;
+  }
+  article.content{
+    max-width:none;
+  }
+
+  /* Blocos de tópico: texto à esquerda, imagem à direita */
+  .topic-row{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:2.5rem;
+    align-items:center;
+    margin-bottom:3rem;
+  }
+  .topic-row:last-child{ margin-bottom:0; }
+  .topic-row .topic-text{ max-width:38rem; }
+  .topic-row .topic-text p{ margin-bottom:0; }
+  .topic-row .topic-figure{ margin:0; }
+  .topic-row .topic-figure img{
+    width:100%;
+    border-radius:14px;
+    border:1px solid var(--line);
+  }
+  @media (max-width:56rem){
+    .topic-row{ grid-template-columns:1fr; }
+    .topic-row .topic-figure{ order:-1; }
+  }
+
+  /* Galeria */
+  .gallery{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem;
+  }
+  .gallery figure{ margin:0; }
+  .gallery img{
+    width:100%; aspect-ratio:4/3; object-fit:cover;
+    border-radius:12px; border:1px solid var(--line);
+  }
+  .gallery figcaption{
+    margin-top:0.6rem; font-size:0.92rem; color:var(--ink-soft);
+  }
+
+  /* Blocos de mídia (vídeo / podcast) */
+  .media-block{
+    display:grid; grid-template-columns:1fr 1.15fr; gap:2.5rem; align-items:start;
+  }
+  .player{
+    background:var(--ink); border-radius:14px; overflow:hidden;
+    aspect-ratio:16/9; position:relative;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .player.audio{ aspect-ratio:16/7; background:var(--accent-dark); }
+  .player .play-btn{
+    width:64px; height:64px; border-radius:50%;
+    background:var(--surface); border:none;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .player .play-btn svg{ width:22px; height:22px; }
+  .player video{ width:100%; height:100%; display:block; object-fit:contain; background:#000; }
+  /* Vídeo em destaque: ocupa quase toda a largura e cabe na altura da tela */
+  .wrap-wide{ max-width:96rem; }
+  .video-feature{ width:min(100%, calc((100vh - 6rem) * 16 / 9)); margin:0 auto; }
+  .video-feature .player{ margin:0; border-radius:16px; }
+  .video-info{ max-width:48rem; margin-top:1.6rem; }
+  .video-info details{ margin-top:0; }
+  .player figcaption{
+    position:absolute; bottom:0.9rem; left:1rem; right:1rem;
+    color:#F2F0EA; font-size:0.85rem; opacity:0.85;
+  }
+
+  details{
+    margin-top:1.2rem;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:0.9rem 1.1rem;
+  }
+  summary{
+    cursor:pointer; font-weight:600; list-style:none;
+    display:flex; align-items:center; gap:0.6rem;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{
+    content:"+"; font-family:'Fraunces', serif; font-size:1.2rem; color:var(--accent);
+    width:1.2em;
+  }
+  details[open] summary::before{ content:"–"; }
+  .transcript{
+    margin-top:0.9rem; padding-top:0.9rem; border-top:1px solid var(--line);
+    max-height:22rem; overflow-y:auto; padding-right:0.8rem;
+    scrollbar-width:thin; scrollbar-color:var(--accent) var(--bg);
+  }
+  .transcript::-webkit-scrollbar{ width:8px; }
+  .transcript::-webkit-scrollbar-track{ background:var(--bg); border-radius:8px; }
+  .transcript::-webkit-scrollbar-thumb{ background:var(--accent); border-radius:8px; }
+  .transcript p{ font-size:0.96rem; }
+  .note{
+    font-size:0.85rem; color:var(--ink-soft); font-style:italic; margin-top:0.8rem;
+  }
+
+  /* Rodapé */
+  .site-footer{
+    background:var(--accent-dark); color:#EFEDE6;
+    padding:3rem 0 2.2rem;
+  }
+  .site-footer h2{ color:#fff; font-size:1.5rem; max-width:28ch; }
+  .site-footer p{ color:#D8E4DF; }
+  .team{
+    margin-top:1.8rem; padding-top:1.6rem; border-top:none;
+    font-size:0.9rem; color:#C9D6D0;
+    padding-right:1rem;
+  }
+
+  @media (max-width: 880px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .hero-figure{ order:-1; }
+    .intro-grid{ grid-template-columns:1fr; }
+    .gallery{ grid-template-columns:1fr 1fr; }
+    .media-block{ grid-template-columns:1fr; }
+  }
+  @media (max-width: 560px){
+    .gallery{ grid-template-columns:1fr; }
+    .main-nav ul{ gap:1rem 1.2rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+
+  /* Seletor de idioma (Google Tradutor) */
+  .lang-bar{
+    background:var(--accent-dark); color:#EFEDE6;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .lang-bar .wrap{
+    display:flex; align-items:center; justify-content:flex-end;
+    flex-wrap:wrap; gap:0.5rem 0.9rem;
+    padding-top:0.55rem; padding-bottom:0.55rem;
+  }
+  .lang-label{
+    font-size:0.8rem; font-weight:500; letter-spacing:0.02em; color:#C9D6D0;
+  }
+  .lang-options{ display:flex; flex-wrap:wrap; gap:0.5rem; }
+  .lang-btn{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    min-height:36px; padding:0.3rem 0.9rem 0.3rem 0.4rem;
+    border:1px solid rgba(255,255,255,0.35); border-radius:100px;
+    background:transparent; color:#EFEDE6;
+    font:inherit; font-size:0.88rem; font-weight:500; line-height:1;
+    cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .lang-btn:hover{ background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.6); }
+  .lang-btn:focus-visible{ outline:3px solid #fff; outline-offset:2px; border-radius:100px; }
+  .lang-code{
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:2rem; padding:0.28rem 0.4rem; border-radius:100px;
+    background:rgba(255,255,255,0.16);
+    font-size:0.7rem; font-weight:700; letter-spacing:0.06em;
+  }
+  .lang-btn[aria-pressed="true"]{
+    background:var(--bg); color:var(--accent-dark); border-color:var(--bg);
+  }
+  .lang-btn[aria-pressed="true"] .lang-code{
+    background:var(--accent-dark); color:var(--bg);
+  }
+
+  /* Esconde os elementos que o Google Tradutor injeta na página */
+  #google_translate_element{ position:absolute; left:-9999px; top:0; }
+  body{ top:0 !important; }
+  iframe.skiptranslate, .goog-te-banner-frame, .goog-te-balloon-frame,
+  .VIpgJd-ZVi9od-ORHb-OEVmcd, #goog-gt-tt, .goog-tooltip{ display:none !important; }
+  .goog-text-highlight{ background:none !important; box-shadow:none !important; }
+
+  @media (max-width: 560px){
+    .lang-bar .wrap{ justify-content:center; }
+    .lang-options{ justify-content:center; flex-wrap:nowrap; gap:0.4rem; }
+    .lang-btn{ font-size:0.8rem; gap:0.4rem; padding:0.25rem 0.65rem 0.25rem 0.3rem; }
+    .lang-code{ min-width:1.7rem; padding:0.25rem 0.3rem; font-size:0.66rem; }
+  }
+
+  /* Links de contato e projetos */
+  .site-footer .wrap{ position:relative; }
+  .social-links{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:flex-end;
+    gap:0.75rem;
+    margin-top:0;
+    position:absolute;
+    right:1rem;
+    bottom:0;
+    max-width:48%;
+  }
+  .social-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.65rem;
+    min-height:48px;
+    padding:0.7rem 1.1rem;
+    border:1px solid rgba(255,255,255,0.28);
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .social-link:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,0.16);
+    border-color:rgba(255,255,255,0.6);
+  }
+  .social-link img{
+    width:24px;
+    height:24px;
+    object-fit:contain;
+  }
+  .social-link:focus-visible{
+    outline:3px solid #fff;
+    outline-offset:4px;
+  }
+  @media (max-width:760px){
+    .social-links{
+      position:static;
+      max-width:100%;
+      justify-content:flex-start;
+      margin-top:1.4rem;
+    }
+    .social-link{flex:1 1 100%;}
+  }
+  @media (max-width:560px){
+    .social-links{gap:0.7rem;}
+  }
+
+
+  /* Identidade visual, banner e navegação responsiva */
+  .brand{align-items:center; flex-shrink:0;}
+  .brand-logo{width:min(270px, 100%); height:auto;}
+  .hero{
+    position:relative; isolation:isolate; overflow:hidden;
+    background:
+      linear-gradient(105deg, rgba(246,244,239,.98) 0%, rgba(246,244,239,.94) 48%, rgba(246,244,239,.58) 100%),
+      url("./assets/ChatGPT Image 23 de set. de 2026, 14_00_40.png") center/cover no-repeat;
+    padding:5.5rem 0 5rem;
+  }
+  .hero::before{
+    content:""; position:absolute; z-index:-1; width:28rem; height:28rem;
+    right:-8rem; top:-12rem; border-radius:50%;
+    background:radial-gradient(circle,rgba(47,111,99,.18),transparent 70%);
+  }
+  .hero-copy{position:relative;}
+  .eyebrow,.impact-kicker{
+    display:inline-block; color:var(--accent); font-size:.76rem;
+    font-weight:700; letter-spacing:.15em; margin-bottom:1rem;
+  }
+  .hero h1{font-size:clamp(2.5rem,5vw,4.5rem); letter-spacing:-.04em;}
+  .hero .lede{font-size:1.06rem; line-height:1.8;}
+  .hero-figure{box-shadow:0 24px 60px rgba(31,74,66,.18); border:5px solid rgba(255,255,255,.75);}
+  .hero-actions{display:flex; flex-wrap:wrap; align-items:center; gap:1rem; margin-top:1.5rem;}
+  .hero-cta{
+    display:inline-flex; gap:.8rem; align-items:center; padding:.9rem 1.25rem;
+    border-radius:100px; background:var(--accent-dark); color:#fff;
+    text-decoration:none; font-weight:700; box-shadow:0 8px 20px rgba(31,74,66,.18);
+    transition:transform .2s,background .2s;
+  }
+  .hero-cta:hover{transform:translateY(-2px);background:var(--accent);}
+  .hero-note{font-size:.85rem;color:var(--ink-soft);}
+  .tag-row span{background:rgba(255,255,255,.78);border-color:rgba(47,111,99,.2);}
+  .impact-banner{padding:2.2rem 0;background:var(--accent-dark);color:#fff;border:0;}
+  .impact-inner{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;}
+  .impact-mark{font-size:2.8rem;color:#D8C18E;line-height:1;}
+  .impact-kicker{color:#D8C18E;margin-bottom:.35rem;}
+  .impact-banner h2{color:#fff;font-size:clamp(1.5rem,3vw,2.35rem);margin:0 0 .45rem;}
+  .impact-banner h2 em{color:#D8C18E;font-style:normal;}
+  .impact-banner p{color:#D8E4DF;margin:0;max-width:54rem;}
+  .impact-link{white-space:nowrap;color:#fff;text-decoration:none;font-weight:700;border:1px solid rgba(255,255,255,.4);padding:.75rem 1rem;border-radius:100px;}
+  .impact-link:hover{background:rgba(255,255,255,.12);}
+  .section-head h2{letter-spacing:-.025em;}
+  .topic-figure img,.gallery img{transition:transform .35s,box-shadow .35s;}
+  .topic-figure img:hover,.gallery figure:hover img{transform:translateY(-3px);box-shadow:0 14px 30px rgba(31,74,66,.12);}
+  .podcast-card{background:#fff!important;border:1px solid var(--line);box-shadow:0 16px 40px rgba(30,29,26,.07);}
+  .podcast-art{
+    min-height:230px;position:relative;overflow:hidden;border-radius:12px;padding:1.4rem;
+    display:flex;flex-direction:column;justify-content:center;
+    color:#fff;background:linear-gradient(135deg,#1F4A42 0%,#2F6F63 58%,#B4791F 150%);
+    isolation:isolate;margin-bottom:1.2rem;
+  }
+  .podcast-art::before{content:"";position:absolute;inset:0;z-index:-1;
+    background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.2),transparent 36%),
+    repeating-linear-gradient(135deg,transparent 0 18px,rgba(255,255,255,.035) 19px 20px);}
+  .podcast-label{font-size:.66rem;letter-spacing:.16em;font-weight:700;color:#D8C18E;}
+  .podcast-art strong{font-family:'Fraunces',Georgia,serif;font-size:clamp(2.1rem,4vw,3.2rem);line-height:.95;margin:.7rem 0;z-index:1;}
+  .podcast-art strong em{color:#D8C18E;font-style:italic;}
+  .podcast-subtitle{font-size:.7rem;letter-spacing:.18em;font-weight:700;z-index:1;}
+  .podcast-mic{position:absolute;right:1.3rem;bottom:.8rem;font-size:4.5rem;color:rgba(255,255,255,.17);}
+  .podcast-orbit{position:absolute;border:1px solid rgba(255,255,255,.17);border-radius:50%;width:180px;height:180px;right:-50px;top:-45px;}
+  .orbit-two{width:125px;height:125px;right:-22px;top:-18px;}
+  .podcast-card figcaption{font-size:1rem!important;margin-bottom:.8rem!important;}
+  .menu-toggle{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:.65rem;cursor:pointer;}
+  .menu-toggle span{display:block;width:22px;height:2px;background:var(--accent-dark);margin:4px;}
+  @media(max-width:760px){
+    .site-header{z-index:30;}
+    .site-header .wrap{gap:.5rem;padding-top:.7rem;padding-bottom:.7rem;}
+    .brand-logo{width:220px;}
+    .menu-toggle{display:block;margin-left:auto;}
+    .main-nav{display:none;position:absolute;top:100%;left:1rem;right:1rem;background:#fff;
+      padding:1rem;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 40px rgba(30,29,26,.16);}
+    .main-nav.is-open{display:block;}
+    .main-nav ul{display:flex;flex-direction:column;gap:.25rem;}
+    .main-nav a{display:block;padding:.8rem 1rem;border:0;border-radius:8px;}
+    .main-nav a:hover{background:#EEF3F0;}
+    .hero{padding:3.2rem 0 3rem;background-position:center;}
+    .hero .wrap{gap:1.7rem;}
+    .hero-figure{border-radius:14px;}
+    .hero h1{font-size:clamp(2.1rem,9vw,3.2rem);}
+    .hero .lede{font-size:1rem;}
+    .impact-inner{grid-template-columns:auto 1fr;gap:1rem;}
+    .impact-link{grid-column:2;justify-self:start;}
+    .impact-mark{font-size:2.1rem;}
+    .impact-banner{padding:1.7rem 0;}
+    .podcast-art{min-height:205px;}
+    .site-footer .wrap{padding-bottom:.5rem;}
+  }
+  @media(max-width:420px){
+    .brand-logo{width:185px;}
+    .hero-actions{align-items:flex-start;flex-direction:column;}
+    .tag-row{gap:.4rem;}
+    .tag-row span{font-size:.77rem;}
+    .impact-inner{grid-template-columns:1fr;}
+    .impact-link{grid-column:1;}
+    .impact-mark{display:none;}
+    .social-links{position:static;max-width:100%;margin-top:1.2rem;}
+    .social-link{flex:1 1 100%;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{transition:none!important;animation:none!important;}
+  }
+
+
+    .topic-row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 760px) {
+      .topic-row-reverse {
+        flex-direction: column;
+      }
+    }
+
+</style>
+</head>
+<body>
+
+<div class="lang-bar notranslate" translate="no">
+  <div class="wrap">
+    <span class="lang-label" id="lang-label">Idioma / Language</span>
+    <div class="lang-options" role="group" aria-labelledby="lang-label">
+      <button type="button" class="lang-btn" data-lang="pt" lang="pt" aria-pressed="true" onclick="mudarIdioma('pt')">
+        <span class="lang-code" aria-hidden="true">PT</span>Português
+      </button>
+      <button type="button" class="lang-btn" data-lang="es" lang="es" aria-pressed="false" onclick="mudarIdioma('es')">
+        <span class="lang-code" aria-hidden="true">ES</span>Español
+      </button>
+      <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="false" onclick="mudarIdioma('en')">
+        <span class="lang-code" aria-hidden="true">EN</span>English
+      </button>
+    </div>
+  </div>
+</div>
+<div id="google_translate_element"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="+fácil — início">
+      <img class="brand-logo" alt="+fácil — Tecnologia para todos"
+      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 330 76'%3E%3Crect x='2' y='2' width='72' height='72' rx='20' fill='%231F4A42'/%3E%3Cpath d='M20 39h36M38 21v36' stroke='%23fff' stroke-width='8' stroke-linecap='round'/%3E%3Ctext x='88' y='34' font-family='Arial,sans-serif' font-size='27' font-weight='700' fill='%231E1D1A'%3E+fácil%3C/text%3E%3Ctext x='90' y='58' font-family='Arial,sans-serif' font-size='13' letter-spacing='1' fill='%232F6F63'%3ETECNOLOGIA PARA TODOS%3C/text%3E%3C/svg%3E">
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" onclick="alternarMenu()" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="menu-principal" aria-label="Menu principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#conteudo">Conteúdo</a></li>
+        <li><a href="#midias">Mídias</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-titulo">Acessibilidade não é um extra. É o que torna a tecnologia de todos.</h1>
+        <p class="lede">Um em cada seis brasileiros vive com algum tipo de deficiência. Ainda assim, a maior parte dos sites e aplicativos é construída pensando em um único jeito de ver, ouvir e navegar. Este portal reúne artigos, imagens, um vídeo e um podcast para mostrar por que isso precisa mudar — e como a inteligência artificial pode ajudar nessa mudança.</p>
+        <div class="hero-actions">
+          <a class="hero-cta" href="#conteudo">Explore o conteúdo <span aria-hidden="true">→</span></a>
+          <span class="hero-note">Conhecimento que abre caminhos.</span>
+        </div>
+        <div class="tag-row">
+          <span>Acessibilidade digital</span>
+          <span>Tecnologia assistiva</span>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <img src="./assets/ChatGPT Image 23 de set. de 2026, 14_00_40.png" alt="Grupo diverso de estudantes e profissionais de tecnologia colaborando ao redor de um computador">
+      </figure>
+    </div>
+  </section>
+
+  <section class="impact-banner" aria-label="Mensagem de destaque">
+    <div class="wrap impact-inner">
+      <div class="impact-mark" aria-hidden="true">✳</div>
+      <div>
+        <span class="impact-kicker">UM DIGITAL SEM BARREIRAS</span>
+        <h2>O acesso é um direito. <em>A inclusão transforma tudo.</em></h2>
+        <p>Pequenas escolhas no desenvolvimento podem criar grandes mudanças na vida de alguém.</p>
+      </div>
+      <a href="#midias" class="impact-link">Veja e ouça <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="apresentacao-titulo">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="apresentacao-titulo">Por que isso importa</h2>
+      </div>
+      <div class="intro-grid">
+        <p>Acessibilidade digital é a prática de projetar sites e aplicativos que qualquer pessoa consiga usar, independentemente de como ela enxerga, ouve, se move ou processa informação. Isso inclui pessoas cegas ou com baixa visão, pessoas surdas, pessoas com mobilidade reduzida e pessoas neurodivergentes — mas também beneficia qualquer usuário em condições difíceis, como uma tela com sol forte ou uma conexão instável.</p>
+        <blockquote>“Quando um site é acessível, ninguém precisa pedir para entrar. A porta já está aberta.”</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="conteudo" aria-labelledby="conteudo-titulo">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="conteudo-titulo">Barreiras invisíveis no mundo digital</h2>
+      </div>
+      <article class="content">
+
+        <div class="topic-row">
+          <div class="topic-text">
+            <h3>O que é acessibilidade digital</h3>
+            <p>Na prática, acessibilidade digital significa que um formulário pode ser preenchido só com o teclado, que uma imagem tem uma descrição para quem usa leitor de tela, e que o texto tem contraste suficiente para ser lido sob qualquer luz. Nenhuma dessas exigências é complexa isoladamente — o problema é que raramente são pensadas desde o início do projeto.</p>
+          </div>
+          <figure class="topic-figure">
+            <img src="./assets/ilustracao-o-que-e-acessibilidade.png" alt="Ilustração de um computador com texto alternativo em uma imagem e navegação por teclado em destaque">
+          </figure>
+        </div>
+
+        <div class="topic-row topic-row-reverse">
+          <figure class="topic-figure">
+            <img src="./assets/ilustracao-tecnologias-assistivas.png" alt="Quatro ícones representando leitor de tela, teclado alternativo, reconhecimento de fala e legendas">
+          </figure>
+          <div class="topic-text">
+            <h3>Tecnologias assistivas mais comuns</h3>
+            <p>Leitores de tela convertem o conteúdo da página em voz ou braile. Teclados alternativos e switches permitem navegar sem usar um mouse. Softwares de reconhecimento de fala substituem a digitação. Legendas e transcrições tornam o áudio acessível para pessoas surdas. Nenhuma dessas ferramentas funciona bem, porém, se o site por trás delas não foi construído de forma semântica e organizada.</p>
+          </div>
+        </div>
+
+        <div class="topic-row">
+          <div class="topic-text">
+            <h3>Erros comuns que excluem pessoas</h3>
+            <p>Botões sem texto identificável, vídeos sem legenda, cores como única forma de indicar um erro, menus que só funcionam com o mouse: são detalhes pequenos para quem não depende deles, e barreiras completas para quem depende. A boa notícia é que a maioria tem solução simples — muitas vezes, uma escolha de código diferente já resolve.</p>
+          </div>
+          <figure class="topic-figure">
+            <img src="./assets/ilustracao-erros-comuns.png" alt="Quatro exemplos de erros comuns de acessibilidade: botão sem texto, vídeo sem legenda, cor como único indicador de erro e menu que só funciona com mouse">
+          </figure>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <section id="midias" aria-labelledby="galeria-titulo">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="galeria-titulo">Em imagens</h2>
+      </div>
+      <div class="gallery">
+        <figure>
+          <img src="./assets/hands_interacting_with_an_intuitive_accessible_tablet_interface_with_large.png" alt="Mãos interagindo com uma interface de tablet acessível, com botões grandes e de alto contraste">
+          <figcaption>Interfaces com alvos de toque grandes e contraste alto facilitam o uso por qualquer pessoa.</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/a_person_with_visual_impairment_using_a_computer_with_a_refreshable_braille.png" alt="Pessoa com deficiência visual usando um computador com um display de braile atualizável">
+          <figcaption>Displays de braile convertem o texto da tela em caracteres táteis, em tempo real.</figcaption>
+        </figure>
+        <figure>
+          <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20400%20300%27%3E%3Crect%20width%3D%27200%27%20height%3D%27300%27%20fill%3D%27%231F4A42%27/%3E%3Crect%20x%3D%27200%27%20width%3D%27200%27%20height%3D%27300%27%20fill%3D%27%23FFFFFF%27/%3E%3Ctext%20x%3D%27100%27%20y%3D%27185%27%20font-family%3D%27Georgia%2C%20serif%27%20font-size%3D%2796%27%20fill%3D%27%23FFFFFF%27%20text-anchor%3D%27middle%27%3EAa%3C/text%3E%3Ctext%20x%3D%27300%27%20y%3D%27185%27%20font-family%3D%27Georgia%2C%20serif%27%20font-size%3D%2796%27%20fill%3D%27%231F4A42%27%20text-anchor%3D%27middle%27%3EAa%3C/text%3E%3C/svg%3E" alt="Comparação lado a lado da mesma letra em fundo escuro com texto claro e fundo claro com texto escuro, ilustrando contraste de cores">
+          <figcaption>Contraste adequado entre texto e fundo ajuda pessoas com baixa visão a ler com conforto.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="video-titulo">
+    <div class="wrap wrap-wide">
+      <div class="video-feature">
+      <div class="section-head">
+        <h2 id="video-titulo">Vídeo: o que muda quando um site é acessível</h2>
+      </div>
+      
+        <figure class="player">
+          <video controls preload="metadata" playsinline poster="assets/video_acessibilidade_poster.jpg" aria-label="Vídeo: o que muda quando um site é acessível">
+            <source src="assets/video_acessibilidade_desktop.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução de vídeo. <a href="assets/video_acessibilidade_desktop.mp4">Baixe o vídeo em .mp4</a>.
+          </video>
+        </figure>
+        <div class="video-info">
+          <p>Um vídeo curto, roteirizado e produzido com apoio de IA, mostrando na prática a diferença entre navegar em um site acessível e em um site com barreiras comuns.</p>
+          <details>
+            <summary>Ler transcrição completa do vídeo</summary>
+            <div class="transcript">
+              <p><strong>Narrador(a):</strong> A tecnologia tem o poder de conectar, educar e transformar. Mas, para isso, ela precisa ser para todos.</p>
+
+              <p><strong>Narrador(a):</strong> A acessibilidade digital não é um favor. É um direito essencial para que todas as pessoas possam participar da sociedade.</p>
+
+              <p><strong>Narrador(a):</strong> É a possibilidade de estudar, trabalhar e se comunicar, independentemente de deficiência visual, auditiva ou de outra natureza.</p>
+
+              <p><strong>Narrador(a):</strong> A acessibilidade cria soluções inteligentes que ajudam qualquer pessoa, em qualquer situação, a usar a tecnologia com mais facilidade. Isso inclui desde legendas e alto contraste, até interfaces simples e compatíveis com leitores de tela.</p>
+
+              <p><strong>Narrador(a):</strong> Quando a tecnologia inclui, todos ganham. A acessibilidade beneficia a sociedade como um todo, em todos os momentos do dia.</p>
+
+              <p><strong>Narrador(a):</strong> Por isso, é essencial que empresas e criadores projetem com a inclusão em mente desde o início.</p>
+
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="podcast-titulo">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="podcast-titulo">Podcast: acessibilidade na prática</h2>
+      </div>
+      <div class="media-block">
+        <figure class="player audio podcast-card" style="flex-direction:column; align-items:stretch; justify-content:flex-start; padding:1.2rem; aspect-ratio:auto;">
+          <div class="podcast-art" role="img" aria-label="Capa do podcast O muro invisível na internet brasileira">
+            <span class="podcast-label">PODCAST • ACESSO TOTAL</span>
+            <strong>O muro<br><em>invisível</em></strong>
+            <span class="podcast-subtitle">NA INTERNET BRASILEIRA</span>
+            <span class="podcast-orbit orbit-one"></span><span class="podcast-orbit orbit-two"></span>
+            <span class="podcast-mic" aria-hidden="true">♫</span>
+          </div>
+          <figcaption style="position:static; color:var(--ink); opacity:1; margin-bottom:0.9rem; font-weight:600;">Episódio: O muro invisível na internet brasileira</figcaption>
+          <audio controls style="width:100%;">
+            <source src="./assets/O_muro_invisível_na_internet_brasileira.m4a" type="audio/mp4">
+            Seu navegador não suporta a reprodução de áudio. <a href="assets/podcast-muro-invisivel.m4a">Baixe o episódio em .m4a</a>.
+          </audio>
+        </figure>
+        <div>
+          <p>Um episódio curto, com roteiro organizado por IA e narração revisada pela equipe, conversando sobre tecnologia assistiva no dia a dia.</p>
+          <details>
+            <summary>Ler transcrição completa do podcast</summary>
+            <div class="transcript">
+              <p><strong>Apresentador(a) 1:</strong> Imaginem a seguinte cena. É o fim do mês, as contas estão vencendo, e tipo, é preciso entrar no site do banco para pagar a fatura do cartão. Uma tarefa super comum, né?</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Exato.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Só que tem um detalhe aí. A tela do computador está completamente preta. O mouse foi totalmente desconectado.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Nossa. E a única ferramenta disponível é um teclado. E de repente, uma voz robótica e metálica começa a ler um mar de códigos embaralhados.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Numa velocidade quase incompreensível, sem indicar onde está o botão de pagar. É desesperador, só de imaginar.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Pois é. Mas para milhões de brasileiros, isso não é um exercício de imaginação ou um cenário distópico, sabe? É simplesmente uma terça-feira.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Sim. É a realidade diária de tentar navegar num ambiente que, no fundo, foi construído para excluir. E é bom lembrar que nós celebramos ontem, dia 22 de setembro de 2026, o Dia Nacional de Luta da Pessoa com Deficiência.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Uma data essencial para quem nos acompanha lembrar.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Com certeza. E quando a gente olha para a arquitetura do mundo digital hoje, a gente percebe que aquela utopia da internet como uma praça pública infinita, onde qualquer pessoa pode entrar e interagir, bom, falhou miseravelmente.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Falhou muito. E a nossa missão nesta exploração de hoje é exatamente dissecar por que isso acontece. A nossa pilha de fontes de hoje é bem variada.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Nós temos artigos de tecnologia, materiais do Ministério dos Direitos Humanos e guias de empresas focadas nisso, tipo a HandTok, a EqualWeb e a Icom. Eles abordam um mundo que é invisível para muitos, mas totalmente essencial para milhões. O nosso foco aqui não é só falar sobre ser amigável.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> É expor como a arquitetura atual da internet exclui ativamente uma parcela gigantesca da população. E, claro, como a tecnologia pode e deve consertar isso.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Certo, vamos destrinchar isso. Quão grande é esse muro invisível no Brasil hoje?</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Olha, é colossal. Os dados das fontes trazem um levantamento chocante do movimento web para todos. Eles descobriram que menos de 1% dos sites brasileiros são totalmente acessíveis.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Espera, menos de 1%?</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Menos de 1%.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Caramba. Isso quer dizer que 99% da internet nacional está, tipo, tecnicamente quebrada para um público enorme.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Lendo os dados do IBGE que vieram no material, essa galera representa mais de 8,4% da população do país. Sim, estamos falando de mais de 17,3 milhões de pessoas com algum tipo de deficiência no Brasil. E só de deficiência visual são 3,1% da população brasileira.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> É muita gente. E a internet hoje em dia é essencial para tudo, né? Para pagar contas, estudar, ler notícias, trabalhar.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Exatamente.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Sabe, lendo essas fontes, me veio uma analogia perfeita à cabeça. Construir um site sem acessibilidade digital é exatamente a mesma coisa que um arquiteto planejar um prédio gigantesco, lindo, mas esquecer de colocar elevadores ou rampas para quem usa cadeira de rodas.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> A analogia é perfeita.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> É um prédio inútil para muita gente. E o que é fascinante aqui é que a acessibilidade não resolve a vida apenas de quem tem uma deficiência permanente.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Como assim?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Ela também atende a deficiências temporárias ou situacionais.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Imagina alguém com um braço quebrado, que só pode usar o teclado por um tempo.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Ah, entendi. Ou tipo quando a gente tenta ler a tela do celular debaixo de um sol super forte e não enxerga nada, né?</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Exato. Se o site tem um bom contraste visual, o que é uma regra de acessibilidade, ele ajuda tanto a pessoa com baixa visão quanto qualquer um de nós no sol, ou até mesmo idosos que naturalmente perdem a precisão motora. Um site acessível torna a navegação mais simples e intuitiva para absolutamente todo mundo. A famosa usabilidade universal.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Eu fiquei maravilhada com isso. Mas bom, já que estabelecemos que o nosso prédio digital não tem rampas, vamos analisar qual é a principal cadeira de rodas virtual que as pessoas com deficiência visual usam, e por que ela esbarra nessas escadas invisíveis.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Boa. Os documentos falam muito dos leitores de tela, como o NVDA, o JAWS ou o voiceover dos celulares.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Isso. Mas o que eles fazem exatamente?</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Eles não leem o visual da tela, sabe? Eles interpretam o código-fonte, o famoso HTML, e transformam isso em áudio sintético, ou então em respostas táteis para quem usa aquelas linhas Braille.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> E existem dois modos de uso essenciais, operados pelo teclado.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> O modo de navegação, usando as setas para pular de conteúdo em conteúdo.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Tipo o escaneando a página, né?</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Isso mesmo.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> E o modo de foco, que é quando a pessoa precisa interagir de verdade, tipo preencher um formulário. Mas pera um pouco. Eu fiquei super curiosa com uma coisa, lendo isso.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Pode falar.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Se o software é tão avançado hoje em dia, por que ele simplesmente não lê o que está escrito na tela como os nossos olhos fazem? Tipo, por que a culpa de não funcionar recai sobre o site e o programador, e não sobre o leitor de tela?</p>
+
+              <p><strong>Apresentador(a) 2:</strong> É uma ótima pergunta. Mas a questão é que o software precisa de placas de sinalização lá dentro do código.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Ele não entende a imagem visual do site.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Ah, ele não vê as cores e os botões bonitinhos.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Nem um pouco.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Se o desenvolvedor não organizar o site com o que eles chamam de landmarks, que são pontos de referência, o leitor se perde. Ele precisa saber o que é o cabeçalho, o que é o menu, o que é o rodapé.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> E a hierarquia de títulos também, né? Os famosos H1, H2.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Exatamente. Se o desenvolvedor não colocar essas tags de hierarquia lógica, o leitor de tela se afoga num mar de textos embaralhados. Fica tudo no mesmo nível e a pessoa não entende nada.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Entendi. O que nos leva ao próximo ponto da nossa exploração. O paradoxo do site visualmente perfeito, mas tecnicamente quebrado.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Nossa, esse é o que mais tem.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Sim. Aquelas empresas que focam só no design estético e esquecem o resto.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Quais são os erros técnicos exatos que elas cometem, segundo os guias que a gente analisou?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> O mais clássico de todos é a falta do texto alternativo nas imagens. O famoso alt-text.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Ah, esse é um perigo.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Tinha um exemplo ótimo nas fontes.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Sim, o do gráfico. Imagina um site de economia que coloca um gráfico mostrando o lucro de uma empresa.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Aí o programador vai lá e coloca no alt-text apenas a frase imagem de um gráfico.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Nossa, que inútil. Tipo, a pessoa cega vai ouvir imagem de um gráfico e vai ficar sem a informação principal.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Completamente. O texto alternativo precisa descrever o dado principal, o propósito da imagem.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Tem que estar escrito lá que é um gráfico mostrando que as ações subiram 10%.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Caso contrário, a informação evapora. E tem também a questão dos botões, né? O pessoal adora colocar termos genéricos como clique aqui.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> É, é um pesadelo.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Imagina ouvir no leitor de tela uma lista infinita dizendo clique aqui, clique aqui, clique aqui.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Clicar pra quê? Pra comprar? Pra deletar a conta? Tem que descrever a função do botão.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Aqui é que a coisa fica realmente interessante. Eu quero pedir pra quem nos ouve fazer um teste mental rápido.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Bora.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Imagine tentar fazer uma compra de supermercado online ou acessar a conta do banco sem encostar no mouse, só usando a tecla Tab do teclado.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> É difícil.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> E aí de repente você esbarra em uma armadilha, a temida armadilha de foco, que as fontes chamam de Focus Trap.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Nossa, o terror dos usuários de teclado.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Sim. Imagine que abre um pop-up gigante na tela com uma promoção.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> E você não consegue sair dele, porque o botão de fechar, o x, só funciona com o clique do mouse.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> E a pessoa fica presa ali. Não consegue navegar pra frente nem pra trás, porque o teclado fica rodando em círculos dentro daquele anúncio. É frustrante demais.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> É, o usuário acaba fechando o site e desistindo da compra. É muito triste.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Outra coisa que os guias apontam é a falta de contraste adequado entre o texto e o fundo.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Ou então quando o pessoal achata textos super importantes dentro de imagens JPEG e o leitor não consegue ler nada.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Exatamente. E agora acho que vale a pena a gente dar um passo pra trás e diminuir o zoom. Olhar pras consequências estruturais disso tudo.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Concordo. Por que as empresas continuam errando tanto? Qual é a penalidade real pra isso?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Bom, os documentos apontam um grande desafio no Brasil, que é a falta de profissionais qualificados em tecnologia assistiva.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Tem pouca gente que sabe fazer isso direito, né?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Muito pouca. Existe uma resistência cultural nas empresas. E também uma falta de infraestrutura em regiões mais remotas.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Mas o ponto principal é que, no Brasil, a acessibilidade digital é uma obrigação legal.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Sim, eu vi isso. É amparada pela LBI, a Lei Brasileira de Inclusão, de 2015.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> E também tem a Lei do SAC.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Exato. E os modelos que guiam esse processo, as bússolas dos desenvolvedores, são documentos técnicos pesados.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Como o Emag, no Brasil, e o WCAG 2.2, no mundo todo. E ignorar isso traz riscos reais.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Processos judiciais, imagino.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Sim. Sites inacessíveis podem ser alvo de processos por discriminação. Sem contar que mancha a reputação da marca.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Num mundo focado em pautas ESG, de responsabilidade social, isso é um tiro no pé. E tem o lado financeiro também, que é super forte. Eu fiquei muito surpresa com aquela pesquisa da Accenture.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Aquela dos consumidores?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Essa mesma. Ela diz que 62% dos consumidores preferem comprar de marcas que estão envolvidas com causas de inclusão.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> E tem a questão do Google, né?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> O algoritmo do Google é o maior usuário cego da internet.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Ele escaneia o site igualzinho a um leitor de tela. Então, se o seu site é inacessível e tem o HTML todo bagunçado, o Google te penaliza e joga seu site lá para as últimas páginas da busca.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Ou seja, quem faz site acessível é premiado pelo Google.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Isso é genial. E como é que a gente conserta isso em escala? Quais são as soluções atuais?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> A tecnologia tem ajudado muito. Temos plugins excelentes hoje em dia.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> A fonte menciona o HandTalk, que é fantástico.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Aquele que traduz o texto para a língua brasileira de sinais, a Libras?</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Esse mesmo. Usando aquele avatar 3D.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> É uma tecnologia brasileira incrível. E também tem a inteligência artificial da EqualWeb.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Como ela funciona?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Ela meio que escaneia o site problemático e organiza os elementos da página em tempo real para o leitor de tela conseguir entender.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Mas as fontes deixam claro que só a tecnologia não basta.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Tem que testar com humanos, né?</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Exato. É essencial criar grupos de afinidade dentro das empresas para testar esses sites com usuários reais com deficiência.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> O robô não pega todas as nuances de usabilidade.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Então, o que tudo isso significa, no fim das contas?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Significa que investir em acessibilidade não é filantropia. De jeito nenhum.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> É inteligência de negócios. É abrir as portas da sua loja para 17 milhões de novos clientes no Brasil.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Se conectarmos isso ao cenário maior, a gente percebe que a acessibilidade digital não é um destino final onde você chega e pronto.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> É um processo contínuo, sabe? De educação, de empatia e de evolução tecnológica constante.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Com certeza.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Retomando o que exploramos hoje, a internet deveria ser a ferramenta mais democrática do mundo.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Mas ela ainda tem muros altíssimos. Falamos sobre como os leitores de tela funcionam, a urgência de usar um HTML semântico e como consertar botões genéricos e textos alternativos.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> E como isso afeta desde as pessoas com deficiência até o ranqueamento no Google, né?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Exato. A inclusão beneficia todo mundo.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Mas antes da gente encerrar, eu sei que você tem uma reflexão final, baseada nas entrelinhas das fontes, né? Algo que mexe um pouco com o futuro.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Sim, tenho.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> A gente viu que a inteligência artificial, como a da EqualWeb, está sendo usada hoje como um band-aid, consertando sites antigos e adaptando tudo para os leitores de tela.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Mas isso levanta uma questão fascinante para a nossa audiência refletir. Pensem no seguinte, à medida que a gente começa a usar a inteligência artificial generativa para criar os sites do zero, daqui pra frente, o que vai acontecer?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Essa é a grande dúvida.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Será que essa IA vai naturalmente escrever códigos perfeitamente acessíveis com um HTML semântico impecável? Ou será que ela vai herdar as falhas humanas, os nossos preconceitos e os padrões de design excludentes do passado?</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Nossa, porque ela aprende com a internet atual, né? Que é 99% inacessível.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Exatamente. O risco é a máquina construir um novo muro invisível, muito mais rápido, que os próprios algoritmos terão que tentar quebrar depois.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> É um ciclo perigoso.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Caramba, é um pensamento muito provocativo. Uma reflexão fundamental para quem constrói a web hoje.</p>
+
+              <p><strong>Apresentador(a) 1:</strong> Bom, eu queria agradecer muito a companhia de todo mundo que acompanhou essa nossa exploração. Foi um papo excelente. Espero que todo mundo passe a olhar para os sites que visita de uma maneira completamente diferente.</p>
+
+              <p><strong>Apresentador(a) 2:</strong> Eu, com certeza, já estou olhando. Muito obrigada e até o nosso próximo mergulho.</p>
+
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="sobre">
+  <div class="wrap">
+    <h2>Tecnologia só é para todos quando é pensada para todos.</h2>
+    <p>Este projeto foi desenvolvido com apoio de inteligência artificial para planejamento, textos, imagens, vídeo e podcast — com revisão e responsabilidade final da equipe.</p>
+    <div class="team">
+      DEVS : Davi Gomes · Eduardo Steinbach · Caiã Cavalheiro — DESI 2026/1 v1 
+    </div>
+
+    <div class="social-links" aria-label="Links de contato e projetos">
+      <a class="social-link" href="https://wa.me/5548988779779"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Conversar pelo WhatsApp">
+        <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="">
+        WhatsApp
+      </a>
+
+      <a class="social-link" href="https://www.instagram.com/goulart._c/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Visitar Instagram do Goulart">
+        <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="">
+        Instagram
+      </a>
+
+      <a class="social-link" href="https://cavalheirog-dev.vercel.app/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Ver projetos no Vercel">
+        <img src="https://cdn.simpleicons.org/vercel/FFFFFF" alt="">
+        Meus projetos
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+function alternarMenu() {
+  var menu = document.getElementById('menu-principal');
+  var botao = document.querySelector('.menu-toggle');
+  var aberto = menu.classList.toggle('is-open');
+  botao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+  botao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+}
+document.querySelectorAll('#menu-principal a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    var menu = document.getElementById('menu-principal');
+    var botao = document.querySelector('.menu-toggle');
+    menu.classList.remove('is-open');
+    botao.setAttribute('aria-expanded', 'false');
+    botao.setAttribute('aria-label', 'Abrir menu');
+  });
+});
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'pt',
+    includedLanguages: 'pt,en,es',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+function marcarIdioma(idioma) {
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.setAttribute('aria-pressed', btn.dataset.lang === idioma ? 'true' : 'false');
+  });
+}
+
+function mudarIdioma(idioma, tentativas) {
+  tentativas = tentativas || 0;
+  var combo = document.querySelector('.goog-te-combo');
+
+  if (!combo) {
+    if (tentativas < 20) setTimeout(function () { mudarIdioma(idioma, tentativas + 1); }, 300);
+    return;
+  }
+
+  var existe = Array.prototype.some.call(combo.options, function (o) { return o.value === idioma; });
+  combo.value = existe ? idioma : '';
+  combo.dispatchEvent(new Event('change'));
+  marcarIdioma(idioma);
+}
+
+// Ao recarregar, marca o idioma que o Google Tradutor já lembrou (cookie googtrans)
+(function () {
+  var m = document.cookie.match(/googtrans=\/[^\/]+\/([a-z-]+)/i);
+  if (m) marcarIdioma(m[1]);
+})();
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

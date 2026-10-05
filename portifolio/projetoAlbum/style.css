@@ -1,0 +1,210 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #575757;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 36px;
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 18px;
+}
+
+.escrita {
+    text-align: center;
+    font-size: 10px;
+}
+
+.cardsvo {
+    background-image: url(./assets/background.png);
+    width: 600px;
+    height: 800px;
+    position: absolute;
+    left: 320px;
+}
+
+.cardsTodos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 570px;   
+    position: absolute;
+    right: 15px;
+}
+
+.cards1 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer;  
+}
+
+.cards1.is-active {
+    border: 3px solid greenyellow;
+}
+
+.cards2 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer; 
+}
+
+.cards3 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer; 
+}
+
+.cards4 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer; 
+}
+
+.cards5 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer; 
+}
+
+.cards6 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer; 
+}
+
+.cards7 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer; 
+}
+
+.cards8 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer; 
+}
+
+.cards9 {
+    background-color: #FFFFFF;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: pointer; 
+}
+
+.cards1.selecionado {
+    border: 3px solid greenyellow;
+}
+
+.cards2.selecionado {
+    border: 3px solid greenyellow;
+}
+
+.cards3.selecionado {
+    border: 3px solid greenyellow;
+}
+
+.cards4.selecionado {
+    border: 3px solid greenyellow;
+}
+
+.cards5.selecionado {
+    border: 3px solid greenyellow;
+}
+
+.cards6.selecionado {
+    border: 3px solid greenyellow;
+}
+
+.cards7.selecionado {
+    border: 3px solid greenyellow;
+}
+
+.cards8.selecionado {
+    border: 3px solid greenyellow;
+}
+
+.cards9.selecionado {
+    border: 3px solid greenyellow;
+}
+
+@media (max-width: 540px){
+
+    .titulo {
+        font-size: 15px;
+    }
+
+    .subtitulo{
+        font-size: 10px;
+    }
+
+    .escrita {
+        font-size: 10px;
+    }
+
+    .cardsTodos {
+        width: 400px;
+        position: absolute;
+        left: 100px;    
+    }
+
+    .cardsvo {
+        height: 1150px;
+        position: absolute;
+        left: 5px;
+    }
+}
